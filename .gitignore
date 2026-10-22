@@ -1,0 +1,12 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Logs and runtime caches
+*.log
+__pycache__/
+*.pyc
+
+# Local scratchpad files
+scratch/
+temp/

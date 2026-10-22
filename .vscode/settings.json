@@ -1,0 +1,17 @@
+{
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "sqltools.useNodeRuntime": false,
+  "sqltools.detectNodeRuntime": false,
+  "sqltools.connections": [
+    {
+      "name": "CMAP 1815 Local PostgreSQL",
+      "driver": "PostgreSQL",
+      "server": "localhost",
+      "port": 5432,
+      "database": "cmap1815",
+      "username": "postgres",
+      "password": "password123",
+      "askForPassword": false
+    }
+  ]
+}

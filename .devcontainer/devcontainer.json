@@ -1,0 +1,50 @@
+{
+  "name": "CMAP 1815: Modern SQL Student Sandbox",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "workspace",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  
+  "onCreateCommand": "sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "sqltools.useNodeRuntime": false,
+        "sqltools.detectNodeRuntime": false,
+        "sqltools.connections": [
+          {
+            "name": "CMAP 1815 Local PostgreSQL",
+            "driver": "PostgreSQL",
+            "server": "localhost",
+            "port": 5432,
+            "database": "cmap1815",
+            "username": "postgres",
+            "password": "password123",
+            "askForPassword": false
+          }
+        ]
+      },
+      "extensions": [
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg",
+        "cweijan.vscode-database-client2"
+      ]
+    }
+  },
+
+  "remoteUser": "vscode",
+
+  "containerEnv": {
+    "PGUSER": "postgres",
+    "PGPASSWORD": "password123",
+    "PGDATABASE": "cmap1815",
+    "PGHOST": "localhost",
+    "PGPORT": "5432",
+    "DATABASE_URL": "postgresql://postgres:password123@localhost:5432/cmap1815"
+  },
+
+  "forwardPorts": [5432],
+
+  "postCreateCommand": "bash .devcontainer/setup_database.sh"
+}
